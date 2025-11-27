@@ -12,12 +12,32 @@
 
 #include "fractol.h"
 
-int	main(void)
+int	main (int ac, char **av)
 {
-	void	*mlx;
-	void	*mlx_win;
+	t_fractal	fractal;
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-	mlx_loop(mlx);
+	if (ac == 2 && !ft_strncmp(av[1], "mandelbrot", 10)
+		|| ac == 4 && !ft_strncmp(av[1], "julia", 5))
+	{
+		fractal.name = av[1];
+		ft_fractal_init(&fractal);
+	//	ft_fractal_render(&fractal);
+		mlx_loop(fractal.mlx_connection);
+	}
+	else
+	{
+		ft_putstr_fd(ERROR_MESSAGE, STDERR_FILENO);
+		exit(EXIT_FAILURE);
+	}
 }
+
+
+// int	main(void)
+// {
+// 	void	*mlx;
+// 	void	*mlx_win;
+
+// 	mlx = mlx_init();
+// 	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
+// 	mlx_loop(mlx);
+// }
