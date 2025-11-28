@@ -23,7 +23,10 @@
 # include "mlx.h"
 # include "../lib/libftx/include/libft.h"
 
-#define ERROR_MESSAGE "Please enter \n\t"./fractol mandelbrot\" or \n\t"./fractol julia <value_1> <value_2>\."\n"
+#define ERROR_MESSAGE \
+"Please enter:\n" \
+"\t./fractol mandelbrot\n" \
+"\t./fractol julia <value_1> <value_2>\n"
 
 #define WIDTH	800
 #define HEIGHT	800
@@ -31,7 +34,7 @@
 #define BLACK 0x000000
 #define WHITE 0xFFFFFF
 #define PINK_PASTEL 0xE8A6C7 
-#define PURPLE #7937A6
+#define PURPLE 0x7937A6
 
 #define NAVY_BLUE 0x0A1128
 #define BLUE_DEEP 0x001F54 
@@ -40,15 +43,15 @@
 #define BLUE_PASTEL 0x94C4E3
 
 #define BROWN 0x2F1E1E
-#define RED_DARK #73030D 
-#define ORANGE #FF6E12
-#define AQUA_LIGHT #06ADB3
+#define RED_DARK 0x73030D 
+#define ORANGE 0xFF6E12
+#define AQUA_LIGHT 0x06ADB3
 
 typedef struct s_complex
 {
 	double 	x;   // real
 	double	y;   // imaginary
-}	t_complex
+}	t_complex;
 
 typedef struct s_img
 {
@@ -71,6 +74,9 @@ typedef struct s_fractal
 }	t_fractal;
 
 void	ft_fractal_init(t_fractal *fractal);
+void	ft_data_init(t_fractal *fractal);
+void	ft_fractal_render(t_fractal *fractal);
+
 double	ft_map (double unscaled_num, double new_min, double new_max, double old_max);
 t_complex	ft_sum_complex(t_complex z1, t_complex z2);
 t_complex	ft_square_complex(t_complex z);

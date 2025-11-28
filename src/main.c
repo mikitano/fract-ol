@@ -16,13 +16,13 @@ int	main (int ac, char **av)
 {
 	t_fractal	fractal;
 
-	if (ac == 2 && !ft_strncmp(av[1], "mandelbrot", 10)
-		|| ac == 4 && !ft_strncmp(av[1], "julia", 5))
+	if ((ac == 2 && !ft_strncmp(av[1], "mandelbrot", 10)) ||
+		(ac == 4 && !ft_strncmp(av[1], "julia", 5)))
 	{
 		fractal.name = av[1];
 		ft_fractal_init(&fractal);
-	//	ft_fractal_render(&fractal); // TODO
-		mlx_loop(fractal.mlx_connection);
+		ft_fractal_render(&fractal);
+		mlx_loop(fractal.mlx_start);
 	}
 	else
 	{
@@ -30,7 +30,6 @@ int	main (int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 }
-
 
 // int	main(void)
 // {
