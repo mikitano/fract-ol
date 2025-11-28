@@ -21,7 +21,7 @@ int	main (int ac, char **av)
 	{
 		fractal.name = av[1];
 		ft_fractal_init(&fractal);
-	//	ft_fractal_render(&fractal);
+	//	ft_fractal_render(&fractal); // TODO
 		mlx_loop(fractal.mlx_connection);
 	}
 	else

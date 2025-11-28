@@ -28,6 +28,28 @@
 #define WIDTH	800
 #define HEIGHT	800
 
+#define BLACK 0x000000
+#define WHITE 0xFFFFFF
+#define PINK_PASTEL 0xE8A6C7 
+#define PURPLE #7937A6
+
+#define NAVY_BLUE 0x0A1128
+#define BLUE_DEEP 0x001F54 
+#define BLUE_OCEAN 0x034078 
+#define AQUA_DEEP 0x1282A2
+#define BLUE_PASTEL 0x94C4E3
+
+#define BROWN 0x2F1E1E
+#define RED_DARK #73030D 
+#define ORANGE #FF6E12
+#define AQUA_LIGHT #06ADB3
+
+typedef struct s_complex
+{
+	double 	x;   // real
+	double	y;   // imaginary
+}	t_complex
+
 typedef struct s_img
 {
 	void	*img_ptr;     // pointer to image sturct
@@ -43,9 +65,15 @@ typedef struct s_fractal
 	void	*mlx_start;
 	void	*mlx_window;
 	t_img	img;
+	double	escp_value;
+	int		iter_def;
 	//hooks TODO
 }	t_fractal;
 
 void	ft_fractal_init(t_fractal *fractal);
+double	ft_map (double unscaled_num, double new_min, double new_max, double old_max);
+t_complex	ft_sum_complex(t_complex z1, t_complex z2);
+t_complex	ft_square_complex(t_complex z);
+
 
 #endif

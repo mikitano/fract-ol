@@ -17,12 +17,17 @@ static void	ft_malloc_error(void)
 	perror("Problems with malloc");
 	exit(EXIT_FAILURE);
 }
+void	ft_data_init(t_fractal *fractal)
+{
+	fractal->escp_value = 4;
+	fractal->iter_def = 42;
+}
 
 void	ft_fractal_init(t_fractal *fractal)
 {
 	fractal->mlx_start = mlx_init();
 	if (fractal->mlx_start == NULL)
-		ft_malloc_error(); // TODO
+		ft_malloc_error();
 	fractal->mlx_window = mlx_new_window(fractal->mlx_start, WIDTH, HEIGHT,
 										fractal->name);
 	if (fractal->mlx_window == NULL)
@@ -41,5 +46,5 @@ void	ft_fractal_init(t_fractal *fractal)
 	}
 	fractal->img.pixels_ptr = mlx_get_data_addr(fractal->img.img_ptr, &fractal->bits_pixel, &fractal->line_len, &fractal->endian);
 	//events_init(fractal) // TODO
-	//data_init(fractal)   // TODO
+	ft_data_init(fractal)   // TODO
 }

@@ -24,6 +24,7 @@ MLX_DIR = lib/mlx
 MLX = $(MLX_DIR)/libmlx.a
 
 SRC_FILES = main.c \
+		init.c \
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))
