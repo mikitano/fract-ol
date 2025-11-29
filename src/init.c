@@ -6,7 +6,7 @@
 /*   By: mkitano <mkitano@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 21:06:15 by mkitano           #+#    #+#             */
-/*   Updated: 2025/11/29 13:54:25 by mkitano          ###   ########.fr       */
+/*   Updated: 2025/11/29 15:12:05 by mkitano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,24 @@ static void	ft_malloc_error(void)
 {
 	perror("Problems with malloc");
 	exit(EXIT_FAILURE);
+}
+
+void	ft_error_msg(void)
+{
+	ft_putstr_fd("┌────────────────────────────────────────┐\n", STDOUT_FILENO);
+	ft_putstr_fd("| Fract-ol École 42                      |\n", STDOUT_FILENO);
+	ft_putstr_fd("|                                        |\n", STDOUT_FILENO);
+	ft_putstr_fd("| HELP --------------------------------- |\n", STDOUT_FILENO);
+	ft_putstr_fd("| To execute fractals, use the commands  |\n", STDOUT_FILENO);
+	ft_putstr_fd("| -------------------------------------- |\n", STDOUT_FILENO);
+	ft_putstr_fd("| ./bin/fractol mandelbrot               |\n", STDOUT_FILENO);
+	ft_putstr_fd("| ./bin/fractol julia <real> <imag>      |\n", STDOUT_FILENO);
+	ft_putstr_fd("|                                        |\n", STDOUT_FILENO);
+	ft_putstr_fd("| EXEMPLE------------------------(julia) |\n", STDOUT_FILENO);
+	ft_putstr_fd("| ./bin/fractol julia 0 0.8              |\n", STDOUT_FILENO);
+	ft_putstr_fd("| ./bin/fractol julia -0.835 -0.2321     |\n", STDOUT_FILENO);
+	ft_putstr_fd("| ./bin/fractol julia  0.285  0          |\n", STDOUT_FILENO);
+	ft_putstr_fd("└────────────────────────────────────────┘\n", STDOUT_FILENO);
 }
 
 static void	ft_data_init(t_fractal *fractal)
@@ -28,8 +46,8 @@ static void	ft_data_init(t_fractal *fractal)
 	if (!ft_strncmp(fractal->name, "julia", 5))
 	{
 		fractal->iter_def = 180;
-		fractal->shift_x = 0.0; // TODO descobrir
-		fractal->shift_y = 0.0; // TODO descobrir
+		fractal->shift_x = 0.0;
+		fractal->shift_y = 0.0;
 	}
 }
 
@@ -41,8 +59,8 @@ static void	ft_events_init(t_fractal *fractal)
 		ft_mouse_handler, fractal);
 	mlx_hook(fractal->mlx_window, DestroyNotify, StructureNotifyMask,
 		ft_close_handler, fractal);
-	mlx_hook(fractal->mlx_window, MotionNotify, PointerMotionMask,
-		ft_julia_mouse_track, fractal);
+	//mlx_hook(fractal->mlx_window, MotionNotify, PointerMotionMask,
+	//	ft_julia_mouse_track, fractal);
 }
 
 void	ft_fractal_init(t_fractal *fractal)

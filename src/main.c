@@ -6,7 +6,7 @@
 /*   By: mkitano <mkitano@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 13:27:15 by mkitano           #+#    #+#             */
-/*   Updated: 2025/11/29 12:02:50 by mkitano          ###   ########.fr       */
+/*   Updated: 2025/11/29 15:13:47 by mkitano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		ft_putstr_fd(ERROR_MESSAGE, STDERR_FILENO);
+		ft_error_msg();
 		exit(EXIT_FAILURE);
 	}
 	return (0);

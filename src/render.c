@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   render.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mkitano <mkitano@student.42sp.org.br>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/29 13:57:37 by mkitano           #+#    #+#             */
+/*   Updated: 2025/11/29 15:17:20 by mkitano          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "fractol.h"
 
@@ -45,7 +57,7 @@ static void	ft_handle_pixel(int x, int y, t_fractal *fractal)
 		}
 		++i;
 	}
-	ft_pixel_put(x, y, &fractal->img, PURPLE);
+	ft_pixel_put(x, y, &fractal->img, BLUE_DEEP);
 }
 
 void	ft_fractal_render(t_fractal *fractal)

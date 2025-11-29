@@ -6,7 +6,7 @@
 #    By: mkitano <mkitano@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/22 18:15:28 by mkitano           #+#    #+#              #
-#    Updated: 2025/11/22 15:20:12 by mkitano          ###   ########.fr        #
+#    Updated: 2025/11/29 14:51:59 by mkitano          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ CC = cc
 AR = ar
 ARFLAGS = crs
 
-CCFLAGS = -Wall -Wextra -Werror 
+CCFLAGS = -Wall -Wextra -Werror -g
 DEPFLAGS = -MMD -MP
 IFLAGS = -I$(INCLUDE_DIR) -I$(LIBFT_DIR)/include -I$(MLX_DIR)
 LDFLAGS = -L$(LIBFT_DIR) -L$(MLX_DIR)

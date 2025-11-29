@@ -6,7 +6,7 @@
 /*   By: mkitano <mkitano@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 13:28:30 by mkitano           #+#    #+#             */
-/*   Updated: 2025/11/29 11:13:49 by mkitano          ###   ########.fr       */
+/*   Updated: 2025/11/29 15:12:51 by mkitano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,7 @@
 # include <math.h>
 # include <stdio.h>  // perror
 # include <stdlib.h> // malloc, free
-# include <string.h> // strerror
 # include <unistd.h> // read, write, close
-
-# define ERROR_MESSAGE "Please enter \n\t\"./fractol mandelbrot\" or \n\t\"./fractol julia <value_1> <value_2>\"\n"
 
 # define WIDTH 800
 # define HEIGHT 800
@@ -53,8 +50,8 @@ typedef struct s_complex
 
 typedef struct s_img
 {
-	void 	*img_ptr;    // pointer to image sturct
-	char 	*pixels_ptr; // points to the actual pixels
+	void	*img_ptr;    // pointer to image sturct
+	char	*pixels_ptr; // points to the actual pixels
 	int		bits_pixel;
 	int		endian;
 	int		line_len;
@@ -89,5 +86,7 @@ int			ft_close_handler(t_fractal *fractal);
 int			ft_key_handler(int keysym, t_fractal *fractal);
 int			ft_mouse_handler(int button, int x, int y, t_fractal *fractal);
 int			ft_julia_mouse_track(int x, int y, t_fractal *fractal);
+
+void		ft_error_msg(void);
 
 #endif
