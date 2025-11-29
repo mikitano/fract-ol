@@ -34,7 +34,7 @@ static void	ft_events_init(t_fractal *fractal)
 	mlx_hook(fractal->mlx_window, DestroyNotify, StructureNotifyMask,
 			ft_close_handler, fractal);
 	mlx_hook(fractal->mlx_window, MotionNotify, PointerMotionMask,
-			ft_julia_track, fractal);
+			ft_julia_mouse_track, fractal);
 
 }
 

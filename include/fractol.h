@@ -89,6 +89,6 @@ double		ft_atodbl(char *s);
 int			ft_close_handler(t_fractal *fractal);
 int			ft_key_handler(int keysym, t_fractal *fractal);
 int			ft_mouse_handler(int button, int x, int y, t_fractal *fractal);
-int			ft_julia_track(int x, int y, t_fractal *fractal);
+int			ft_julia_mouse_track(int x, int y, t_fractal *fractal);
 
 #endif
