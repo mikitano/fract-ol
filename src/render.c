@@ -14,12 +14,12 @@ static void	ft_madel_or_julia(t_complex *z, t_complex *c, t_fractal *fractal)
 	if (!ft_strncmp(fractal->name, "julia", 5))
 	{
 		c->x = fractal->julia_x;
-		c->z = fractal->julia_z;
+		c->y = fractal->julia_y;
 	}
 	else
 	{
-		c->x = z.x;
-		c->y = z.y;
+		c->x = z->x;
+		c->y = z->y;
 	}
 }
 
@@ -31,19 +31,19 @@ static void	ft_handle_pixel(int x, int y, t_fractal *fractal)
 	int			color;
 
 	i = 0;
-	z.x = ft_map(x, -2, +2, WIDTH) + fractal->zoom + fractal->shift_x;
-	z.y = ft_map(y, +2, -2, HEIGHT) + fractal->zoom + fractal->shift_y;
+	z.x = (ft_map(x, -2, +2, WIDTH) + fractal->zoom) + fractal->shift_x;
+	z.y = (ft_map(y, +2, -2, HEIGHT) + fractal->zoom) + fractal->shift_y;
 	ft_madel_or_julia(&z, &c, fractal);
 	while (i < fractal->iter_def)
 	{
-		z = ft_sum_complex(ft_square_complex(z), c);    // z = z^2 + c
+		z = ft_sum_complex(ft_square_complex(z), c); // z = z^2 + c
 		if ((z.x * z.x) + (z.y * z.y) > fractal->escp_value)
 		{
-			color = ft_map (i, BLACK, WHITE, fractal->iter_def);
+			color = ft_map(i, BLACK, WHITE, fractal->iter_def);
 			ft_pixel_put(x, y, &fractal->img, color);
 			return ;
 		}
-		i++;
+		++i;
 	}
 	ft_pixel_put(x, y, &fractal->img, PURPLE);
 }
@@ -62,5 +62,6 @@ void	ft_fractal_render(t_fractal *fractal)
 			ft_handle_pixel(x, y, fractal);
 		}
 	}
-	mlx_put_image_to_window(fractal->mlx_start, fractal->mlx_window, fractal->img.img_ptr, 0, 0);
+	mlx_put_image_to_window(fractal->mlx_start, fractal->mlx_window,
+		fractal->img.img_ptr, 0, 0);
 }
