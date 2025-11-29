@@ -6,7 +6,7 @@
 /*   By: mkitano <mkitano@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 13:27:15 by mkitano           #+#    #+#             */
-/*   Updated: 2025/11/29 11:53:57 by mkitano          ###   ########.fr       */
+/*   Updated: 2025/11/29 12:02:50 by mkitano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,8 @@ int	main(int ac, char **av)
 		{
 			fractal.julia_x = ft_atodbl(av[2]);
 			fractal.julia_y = ft_atodbl(av[3]);
-			ft_fractal_init_julia(&fractal);  // TODO
-
 		}
-		else
-			ft_fractal_init(&fractal);
+		ft_fractal_init(&fractal);
 		ft_fractal_render(&fractal);
 		mlx_loop(fractal.mlx_start);
 	}

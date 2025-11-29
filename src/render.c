@@ -31,8 +31,8 @@ static void	ft_handle_pixel(int x, int y, t_fractal *fractal)
 	int			color;
 
 	i = 0;
-	z.x = (ft_map(x, -2, +2, WIDTH) + fractal->zoom) + fractal->shift_x;
-	z.y = (ft_map(y, +2, -2, HEIGHT) + fractal->zoom) + fractal->shift_y;
+	z.x = (ft_map(x, -2, +2, WIDTH) + fractal->shift_x) * fractal->zoom;
+	z.y = (ft_map(y, +2, -2, HEIGHT) + fractal->shift_y) * fractal->zoom;
 	ft_madel_or_julia(&z, &c, fractal);
 	while (i < fractal->iter_def)
 	{

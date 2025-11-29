@@ -6,7 +6,7 @@
 /*   By: mkitano <mkitano@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 10:40:22 by mkitano           #+#    #+#             */
-/*   Updated: 2025/11/29 11:09:58 by mkitano          ###   ########.fr       */
+/*   Updated: 2025/11/29 12:05:11 by mkitano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ int	ft_key_handler(int keysym, t_fractal *fractal)
 int	ft_mouse_handler(int button, int x, int y, t_fractal *fractal)
 {
 
-	if (button == Button5) // Zoom in (checar)
+	if (button == Button4)
 	{
 		fractal->zoom *= 0.95;
 	}
-	else if (button == Button4) // Zoom out (checar)
+	else if (button == Button5)
 	{
 		fractal->zoom *= 1.05;
 	}

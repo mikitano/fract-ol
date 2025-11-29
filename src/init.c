@@ -6,7 +6,7 @@
 /*   By: mkitano <mkitano@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 21:06:15 by mkitano           #+#    #+#             */
-/*   Updated: 2025/11/29 12:00:11 by mkitano          ###   ########.fr       */
+/*   Updated: 2025/11/29 13:54:25 by mkitano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ static void	ft_data_init(t_fractal *fractal)
 	fractal->escp_value = 4;
 	fractal->zoom = 1.0; // zoom factor;
 	fractal->iter_def = 42;
-	fractal->shift_x = -1.5;
-	fractal->shift_y = -1.0;
+	fractal->shift_x = -0.5;
+	fractal->shift_y = -0.0;
 	if (!ft_strncmp(fractal->name, "julia", 5))
 	{
 		fractal->iter_def = 180;
-		fractal->shift_x = -1.5; // TODO descobrir
-		fractal->shift_y = -1.0; // TODO descobrir
+		fractal->shift_x = 0.0; // TODO descobrir
+		fractal->shift_y = 0.0; // TODO descobrir
 	}
 }
 
