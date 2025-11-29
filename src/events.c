@@ -43,3 +43,14 @@ int	ft_mouse_handler(int button, int x, int y, t_fractal *fractal)
 	ft_fractal_render(fractal);
 	return (0);
 }
+
+int	ft_julia_track(int x, int y, t_fractal *fractal)
+{
+	if (!ft_strncmp(fractal->name, "julia", 5))
+	{
+		fractal->julia_x = ft_map(x, -2, +2, WIDTH) * fractal->zoom + fractal->shift_x;
+		fractal->julia_y = ft_map(x, +2, -2, WIDTH) * fractal->zoom + fractal->shift_y;
+		ft_fractal_render(fractal);
+	}
+	return (0);
+}

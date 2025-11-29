@@ -28,6 +28,7 @@ SRC_FILES = main.c \
 		render.c \
 		math_utils.c \
 		events.c \
+		string_utils.c \
 
 SRCS = $(addprefix $(SRC_DIR)/, $(SRC_FILES))
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRC_FILES:.c=.o))

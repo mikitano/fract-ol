@@ -20,6 +20,8 @@ int	main (int ac, char **av)
 		(ac == 4 && !ft_strncmp(av[1], "julia", 5)))
 	{
 		fractal.name = av[1];
+		fractal.julia_x = ft_atodbl(av[2]);
+		fractal.julia_y = ft_atodbl(av[3]);
 		ft_fractal_init(&fractal);
 		ft_fractal_render(&fractal);
 		mlx_loop(fractal.mlx_start);
@@ -29,6 +31,7 @@ int	main (int ac, char **av)
 		ft_putstr_fd(ERROR_MESSAGE, STDERR_FILENO);
 		exit(EXIT_FAILURE);
 	}
+	return (0);
 }
 
 // int	main(void)

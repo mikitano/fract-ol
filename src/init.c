@@ -33,6 +33,8 @@ static void	ft_events_init(t_fractal *fractal)
 			ft_mouse_handler, fractal);
 	mlx_hook(fractal->mlx_window, DestroyNotify, StructureNotifyMask,
 			ft_close_handler, fractal);
+	mlx_hook(fractal->mlx_window, MotionNotify, PointerMotionMask,
+			ft_julia_track, fractal);
 
 }
 
@@ -58,6 +60,6 @@ void	ft_fractal_init(t_fractal *fractal)
 		ft_malloc_error();
 	}
 	fractal->img.pixels_ptr = mlx_get_data_addr(fractal->img.img_ptr, &fractal->img.bits_pixel, &fractal->img.line_len, &fractal->img.endian);
-	//events_init(fractal) // TODO
+	ft_events_init(fractal);
 	ft_data_init(fractal);
 }
