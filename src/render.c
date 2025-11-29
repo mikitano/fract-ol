@@ -5,7 +5,7 @@ static void	ft_pixel_put(int x, int y, t_img *img, int color)
 {
 	int	offset;
 
-	offset = (y + img->line_len) + (x * (img->bits_pixel / 8));
+	offset = (y * img->line_len) + (x * (img->bits_pixel / 8));
 	*(unsigned int *)(img->pixels_ptr + offset) = color;
 }
 
@@ -19,8 +19,8 @@ static void	ft_handle_pixel(int x, int y, t_fractal *fractal)
 	i = 0;
 	z.x = 0.0;
 	z.y = 0.0;
-	c.x = ft_map(x, -2, +2, WIDTH);
-	c.y = ft_map(y, +2, -2, HEIGHT);
+	c.x = ft_map(x, -2, +2, WIDTH) + fractal->zoom + fractal->shift_x;
+	c.y = ft_map(y, +2, -2, HEIGHT) + fractal->zoom + fractal->shift_y;
 	while (i < fractal->iter_def)
 	{
 		z = ft_sum_complex(ft_square_complex(z), c);    // z = z^2 + c

@@ -70,16 +70,20 @@ typedef struct s_fractal
 	t_img	img;
 	double	escp_value;
 	int		iter_def;
-	//hooks TODO
+	//hooks
+	double	shift_x;
+	double	shift_y;
+	double	zoom;
 }	t_fractal;
 
 void	ft_fractal_init(t_fractal *fractal);
-void	ft_data_init(t_fractal *fractal);
 void	ft_fractal_render(t_fractal *fractal);
 
 double	ft_map (double unscaled_num, double new_min, double new_max, double old_max);
 t_complex	ft_sum_complex(t_complex z1, t_complex z2);
 t_complex	ft_square_complex(t_complex z);
 
+int	ft_key_handler(int keysym, t_fractal *fractal);
+int	ft_close_handler(t_fractal *fractal);
 
 #endif

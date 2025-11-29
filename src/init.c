@@ -17,10 +17,23 @@ static void	ft_malloc_error(void)
 	perror("Problems with malloc");
 	exit(EXIT_FAILURE);
 }
-void	ft_data_init(t_fractal *fractal)
+static void	ft_data_init(t_fractal *fractal)
 {
 	fractal->escp_value = 4;
 	fractal->iter_def = 42;
+	fractal->shift_x = 0.0;
+	fractal->shift_y = 0.0;
+	fractal->zoom = 1.0;   // zoom factor;
+}
+static void	ft_events_init(t_fractal *fractal)
+{
+	mlx_hook(fractal->mlx_window, KeyPress, KeyPressMaks, ft_key_handler,
+			fractal);
+	mlx_hook(fractal->mlx_window, ButtonPress, ButtomPressMaks,
+			ft_mouse_handler, fractal);
+	mlx_hook(fractal->mlx_window, DestroyNotify, StructureNotifyMask,
+			ft_close_handler, fractal);
+
 }
 
 void	ft_fractal_init(t_fractal *fractal)
