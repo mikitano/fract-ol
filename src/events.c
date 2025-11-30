@@ -6,7 +6,7 @@
 /*   By: mkitano <mkitano@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 10:40:22 by mkitano           #+#    #+#             */
-/*   Updated: 2025/11/29 14:47:03 by mkitano          ###   ########.fr       */
+/*   Updated: 2025/11/30 11:44:07 by mkitano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int	ft_mouse_handler(int button, int x, int y, t_fractal *fractal)
 	return (0);
 }
 
+// Makes the julia fractal change depending of the mose positon
 //int	ft_julia_mouse_track(int x, int y, t_fractal *fractal)
 //{
 //	if (!ft_strncmp(fractal->name, "julia", 5))

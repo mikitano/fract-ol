@@ -6,7 +6,7 @@
 /*   By: mkitano <mkitano@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 13:28:30 by mkitano           #+#    #+#             */
-/*   Updated: 2025/11/29 15:12:51 by mkitano          ###   ########.fr       */
+/*   Updated: 2025/11/30 11:42:21 by mkitano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "mlx.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
-# include <errno.h> // errno
+# include <errno.h>  // errno
 # include <math.h>
 # include <stdio.h>  // perror
 # include <stdlib.h> // malloc, free
@@ -26,6 +26,7 @@
 # define WIDTH 800
 # define HEIGHT 800
 
+// Color ----------------------------------------------------------------------
 # define BLACK 0x000000
 # define WHITE 0xFFFFFF
 # define PINK_PASTEL 0xE8A6C7
@@ -44,15 +45,15 @@
 
 typedef struct s_complex
 {
-	double 	x; // real
-	double 	y; // imaginary
+	double	x;    // real
+	double	y;    // imaginary
 }			t_complex;
 
 typedef struct s_img
 {
 	void	*img_ptr;    // pointer to image sturct
 	char	*pixels_ptr; // points to the actual pixels
-	int		bits_pixel;
+	int		bits_pixel;  // bits per pixel (ex: 32 or 64)
 	int		endian;
 	int		line_len;
 }			t_img;
@@ -65,7 +66,6 @@ typedef struct s_fractal
 	t_img	img;
 	double	escp_value;
 	int		iter_def;
-	// hooks
 	double	shift_x;
 	double	shift_y;
 	double	zoom;
@@ -80,7 +80,10 @@ double		ft_map(double unscaled_num, double new_min, double new_max,
 				double old_max);
 t_complex	ft_sum_complex(t_complex z1, t_complex z2);
 t_complex	ft_square_complex(t_complex z);
+
 double		ft_atodbl(char *s);
+int			ft_valid(char *av);
+void		ft_erro_bundle(void);
 
 int			ft_close_handler(t_fractal *fractal);
 int			ft_key_handler(int keysym, t_fractal *fractal);

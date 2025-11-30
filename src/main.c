@@ -6,7 +6,7 @@
 /*   By: mkitano <mkitano@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/22 13:27:15 by mkitano           #+#    #+#             */
-/*   Updated: 2025/11/29 15:13:47 by mkitano          ###   ########.fr       */
+/*   Updated: 2025/11/29 17:23:11 by mkitano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@ int	main(int ac, char **av)
 {
 	t_fractal	fractal;
 
-	if ((ac == 2 && !ft_strncmp(av[1], "mandelbrot", 10)) || (ac == 4
-			&& !ft_strncmp(av[1], "julia", 5)))
+	if ((ac == 2 && !ft_strcmp(av[1], "mandelbrot")) || (ac == 4
+			&& !ft_strcmp(av[1], "julia")))
 	{
 		fractal.name = av[1];
 		if (!ft_strncmp(fractal.name, "julia", 5))
 		{
+			if ((ft_valid(av[2])) || (ft_valid(av[3])))
+				ft_erro_bundle();
 			fractal.julia_x = ft_atodbl(av[2]);
 			fractal.julia_y = ft_atodbl(av[3]);
 		}
@@ -36,13 +38,3 @@ int	main(int ac, char **av)
 	}
 	return (0);
 }
-
-// int	main(void)
-// {
-// 	void	*mlx;
-// 	void	*mlx_win;
-
-// 	mlx = mlx_init();
-// 	mlx_win = mlx_new_window(mlx, 1920, 1080, "Hello world!");
-// 	mlx_loop(mlx);
-// }

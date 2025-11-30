@@ -6,10 +6,9 @@
 /*   By: mkitano <mkitano@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 13:57:37 by mkitano           #+#    #+#             */
-/*   Updated: 2025/11/29 15:17:20 by mkitano          ###   ########.fr       */
+/*   Updated: 2025/11/30 11:46:43 by mkitano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "fractol.h"
 
@@ -48,7 +47,7 @@ static void	ft_handle_pixel(int x, int y, t_fractal *fractal)
 	ft_madel_or_julia(&z, &c, fractal);
 	while (i < fractal->iter_def)
 	{
-		z = ft_sum_complex(ft_square_complex(z), c); // z = z^2 + c
+		z = ft_sum_complex(ft_square_complex(z), c);  // z = z^2 + c
 		if ((z.x * z.x) + (z.y * z.y) > fractal->escp_value)
 		{
 			color = ft_map(i, BLACK, WHITE, fractal->iter_def);

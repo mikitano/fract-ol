@@ -6,7 +6,7 @@
 /*   By: mkitano <mkitano@student.42sp.org.br>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/26 21:06:15 by mkitano           #+#    #+#             */
-/*   Updated: 2025/11/29 15:12:05 by mkitano          ###   ########.fr       */
+/*   Updated: 2025/11/30 11:45:38 by mkitano          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_error_msg(void)
 static void	ft_data_init(t_fractal *fractal)
 {
 	fractal->escp_value = 4;
-	fractal->zoom = 1.0; // zoom factor;
+	fractal->zoom = 1.0;      // zoom factor
 	fractal->iter_def = 42;
 	fractal->shift_x = -0.5;
 	fractal->shift_y = -0.0;
@@ -59,6 +59,7 @@ static void	ft_events_init(t_fractal *fractal)
 		ft_mouse_handler, fractal);
 	mlx_hook(fractal->mlx_window, DestroyNotify, StructureNotifyMask,
 		ft_close_handler, fractal);
+	// Makes the julia fractal change depending of the mose positon
 	//mlx_hook(fractal->mlx_window, MotionNotify, PointerMotionMask,
 	//	ft_julia_mouse_track, fractal);
 }

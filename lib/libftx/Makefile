@@ -6,7 +6,7 @@
 #    By: mkitano <mkitano@student.42sp.org.br>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/26 16:26:27 by mkitano           #+#    #+#              #
-#    Updated: 2025/11/22 15:20:34 by mkitano          ###   ########.fr        #
+#    Updated: 2025/11/29 17:28:02 by mkitano          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,8 @@ CORE = ft_isalpha.c \
 	ft_putchar_fd.c \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
-	ft_putnbr_fd.c
+	ft_putnbr_fd.c \
+	ft_strcmp.c \
 
 GNL = get_next_line.c
 
